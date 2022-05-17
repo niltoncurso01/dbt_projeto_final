@@ -1,0 +1,30 @@
+
+version: 2
+
+sources:
+  - name: adventure_works_etl
+    tables:
+      - name: public_customer
+        columns:
+          - name: customerid
+          - name: firstname
+          - name: middlename
+          - name: lastname
+          - name: title
+          - name: suffix
+          - name: companyname
+          - name: salesperson
+          - name: emailaddress
+          - name: phone
+      - name: addres
+        columns:
+          - name: addressid
+          - name: addressline1
+          - name: addressline2
+          - name: city
+          - name: stateprovince
+          - name: countryregion
+          - name: postalcode
+          - name: rowguid
+          - name: modifieddate
+

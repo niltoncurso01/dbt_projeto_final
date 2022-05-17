@@ -1,4 +1,7 @@
-with renamed as (
+{{ config(materialized='table') }}
+
+with 
+renamed as (
     select
         customerid
         , firstname
@@ -16,7 +19,7 @@ with renamed as (
         , salesperson
         , emailaddress
         , phone
-    from adventure_works_etl.public_customer
+    from {{ source('adventure_works_etl', 'public_customer') }}
 )
 
 select *
