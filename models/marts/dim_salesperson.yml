@@ -1,0 +1,127 @@
+version: 2
+
+models:
+  - name: dim_salesperson
+    description: "Sales representative current information."
+    columns:
+      - name: businessentityid 
+        description: Primary key for SalesPerson records. Foreign key to Employee.BusinessEntityID.
+        tests:
+          - not_null
+
+      - name: territoryid
+        description: Territory currently assigned to. Foreign key to SalesTerritory.SalesTerritoryID.
+      
+      - name: salesquota
+        description: Projected yearly sales.
+
+      - name: bonus
+        description: Bonus due if quota is met.
+        tests:
+          - not_null
+
+      - name: commissionpct
+        description: Commision percent received per sale.
+        tests:
+          - not_null
+
+      - name: salesytd
+        description: Sales total year to date.
+
+      - name: saleslastyear
+        description: Sales total of previous year.
+
+      - name: nationalidnumber
+        description: Unique national identification number such as a social security number.
+        tests:
+          - not_null
+
+      - name: loginid
+        description: Network login.
+        tests:
+          - not_null
+
+      - name: jobtitle
+        description: Work title such as Buyer or Sales Representative.
+        tests:
+          - not_null
+
+      - name: birthdate
+        description: Date of birth.
+        tests:
+          - not_null
+
+      - name: gender
+        description: M = Male, F = Female
+        tests:
+          - not_null
+
+      - name: persontype
+        description: Primary type of person
+      
+      - name: title
+        description: A courtesy title. For example, Mr. or Ms.
+
+      - name: firstname
+        description: First name of the person
+
+      - name: middlename
+        description: Middle name or middle initial of the person
+
+      - name: lastname
+        description: Last name of the person
+
+      - name: phonenumber
+        description: Telephone number identification number
+
+      - name: phonenumbertypeid
+        description: Kind of phone number. Foreign key to PhoneNumberType
+
+      - name: phonenumbertype_name
+        description: Name of the telephone number type
+
+      - name: emailaddressid
+        description: Primary key. ID of this email address
+      
+      - name: emailaddress
+        description: E-mail address for the person
+
+      - name: hiredate
+        description: Employee hired on this date.
+        tests:
+          - not_null
+      
+      - name: departmentid
+        description: Department in which the employee worked including currently. Foreign key to Department.DepartmentID.
+        tests:
+          - not_null
+
+      - name: departament_name
+        description: Name of the department.
+        tests:
+          - not_null
+
+      - name: shiftid
+        description: Identifies which 8-hour shift the employee works. Foreign key to Shift.Shift.ID.
+        tests:
+          - not_null
+
+      - name: name_shift
+        description: Shift description.
+        tests:
+          - not_null
+
+      - name: starttime_shift
+        description: Shift start time.
+        tests:
+          - not_null
+      
+      - name: endtime_shift
+        description: Shift end time.
+        tests:
+          - not_null
+
+      - name: startdate_department
+        description: Date the employee started work in the department.
+        tests:
+          - not_null

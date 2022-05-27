@@ -1,0 +1,153 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: "General sales order information."
+    columns:
+      - name: salesorderid 
+        description: Primary key.
+        tests:
+          - not_null
+
+      - name: reasontype
+        description: Category the sales reason belongs to.
+
+      - name: salesorderdetailid
+        description: Primary key. One incremental unique number per product sold.
+        tests:
+          - not_null
+
+      - name: carriertrackingnumber
+        description: Shipment tracking number supplied by the shipper.
+
+      - name: orderqty
+        description: Quantity ordered per product.
+        tests:
+          - not_null
+
+      - name: productid
+        description: Product sold to customer. Foreign key to Product.ProductID.
+        tests:
+          - not_null
+
+      - name: specialofferid
+        description: Promotional code. Foreign key to SpecialOffer.SpecialOfferID.
+        tests:
+          - not_null
+
+      - name: unitprice
+        description: Selling price of a single product.
+        tests:
+          - not_null
+
+      - name: unitpricediscount
+        description: Discount amount.
+        tests:
+          - not_null
+
+      - name: revisionnumber
+        description: Incremental number to track changes to the sales order over time.
+        tests:
+          - not_null
+
+      - name: orderdate
+        description: Dates the sales order was created.
+        tests:
+          - not_null
+      
+      - name: duedate
+        description: Date the order is due to the customer.
+        tests:
+          - not_null
+
+      - name: shipdate
+        description: Date the order was shipped to the customer.
+
+      - name: status
+        description: Order current status. 1 = In process; 2 = Approved; 3 = Backordered; 4 = Rejected; 5 = Shipped; 6 = Cancelled
+        tests:
+          - not_null
+
+      - name: onlineorderflag
+        description: 0 = Order placed by sales person. 1 = Order placed online by customer.
+        tests:
+          - not_null
+
+      - name: purchaseordernumber
+        description: Customer purchase order number reference.
+
+      - name: accountnumber
+        description: Financial accounting number reference.
+
+      - name: customerid
+        description: Customer identification number. Foreign key to Customer.BusinessEntityID.
+        tests:
+          - not_null
+
+      - name: salespersonid
+        description: Sales person who created the sales order. Foreign key to SalesPerson.BusinessEntityID.
+              
+      - name: territoryid
+        description: Territory in which the sale was made. Foreign key to SalesTerritory.SalesTerritoryID.
+        
+      - name: billtoaddressid
+        description: Customer billing address. Foreign key to Address.AddressID.
+        tests:
+          - not_null
+      
+      - name: shiptoaddressid
+        description: Customer shipping address. Foreign key to Address.AddressID.
+        tests:
+          - not_null
+
+      - name: shipmethodid
+        description: Shipping method. Foreign key to ShipMethod.ShipMethodID.
+        tests:
+          - not_null
+
+      - name: creditcardid
+        description: Currency exchange rate used. Foreign key to CurrencyRate.CurrencyRateID.
+
+      - name: cardtype
+        description: Credit card name.
+
+      - name: cardnumber
+        description: Credit card number.
+      
+      - name: expmonth
+        description: Credit card expiration month.
+
+      - name: expyear
+        description: Credit card expiration year.
+      
+      - name: businessentityid
+        description: Business entity identification number. Foreign key to Person.BusinessEntityID.
+
+      - name: creditcardapprovalcode
+        description: Approval code provided by the credit card company.
+
+      - name: currencyrateid
+        description: Currency exchange rate used. Foreign key to CurrencyRate.CurrencyRateID.
+
+      - name: subtotal
+        description: Sales subtotal. Computed as SUM(SalesOrderDetail.LineTotal)for the appropriate SalesOrderID.
+        tests:
+          - not_null
+
+      - name: taxamt
+        description: Tax amount.
+        tests:
+          - not_null
+
+      - name: freight
+        description: Shipping cost.
+        tests:
+          - not_null
+      
+      - name: totaldue
+        description: Total due from customer. Computed as Subtotal + TaxAmt + Freight.
+        tests:
+          - not_null
+
+      - name: comment
+        description: Sales representative comments.
