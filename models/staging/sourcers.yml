@@ -1,0 +1,297 @@
+
+version: 2
+
+sources:
+  - name: adventure_works_etl
+    description: A starter dbt model
+    tables:
+      - name: public_customeraddress
+        columns:
+          - name: customerid
+          - name: addressid
+          - name: addresstype
+          - name: rowguid
+          - name: modifieddate
+
+      - name: public_productmodelproductdescription
+        columns:
+          - name: productmodelid
+          - name: productdescriptionid
+          - name: culture
+          - name: rowguid
+          - name: modifieddate
+
+      - name: production_product
+        columns: 
+          - name: productid
+          - name: name
+          - name: productnumber
+          - name: makeflag
+          - name: finishedgoodsflag
+          - name: color
+          - name: safetystocklevel
+          - name: reorderpoint
+          - name: standardcost
+          - name: listprice
+          - name: size
+          - name: sizeunitmeasurecode
+          - name: weightunitmeasurecode
+          - name: weight
+          - name: daystomanufacture
+          - name: productline
+          - name: class
+          - name: style
+          - name: productsubcategoryid
+          - name: productmodelid
+          - name: sellstartdate
+          - name: sellenddate
+          - name: discontinueddate
+          - name: rowguid
+          - name: modifieddate
+      
+      - name: production_productdescription
+        columns: 
+          - name: productdescriptionid
+          - name: description
+          - name: rowguid
+          - name: modifieddate
+      
+      - name: production_productmodel
+        columns: 
+          - name: productmodelid
+          - name: name
+          - name: catalogdescription
+          - name: instructions
+          - name: rowguid
+          - name: modifieddate    
+
+      - name: person_person
+        columns: 
+          - name: businessentityid
+          - name: persontype
+          - name: namestyle
+          - name: title
+          - name: firstname
+          - name: middlename
+          - name: lastname
+          - name: suffix
+          - name: emailpromotion
+          - name: additionalcontactinfo
+          - name: demographics
+          - name: rowguid
+          - name: modifieddate
+          
+      - name: person_personphone
+        columns: 
+          - name: businessentityid
+          - name: phonenumber
+          - name: phonenumbertypeid
+          - name: modifieddate
+          
+      - name: person_phonenumbertype
+        columns: 
+          - name: phonenumbertypeid
+          - name: name
+          - name: modifieddate
+
+      - name: person_address
+        columns: 
+          - name: addressid
+          - name: addressline1
+          - name: addressline2
+          - name: city
+          - name: stateprovinceid
+          - name: postalcode
+          - name: spatiallocation
+          - name: rowguid
+          - name: modifieddate
+
+      - name: person_countryregion
+        columns: 
+          - name: countryregioncode
+          - name: name
+          - name: modifieddate
+
+      - name: person_stateprovince
+        columns: 
+          - name: stateprovinceid
+          - name: stateprovincecode
+          - name: countryregioncode
+          - name: isonlystateprovinceflag
+          - name: name
+          - name: territoryid
+          - name: rowguid
+          - name: modifieddate
+
+      - name: person_emailaddress
+        columns: 
+          - name: businessentityid
+          - name: emailaddressid
+          - name: emailaddress
+          - name: rowguid
+          - name: modifieddate
+
+      - name: humanresources_department
+        columns: 
+          - name: departmentid
+          - name: name
+          - name: groupname
+          - name: modifieddate
+
+      - name: humanresources_employee
+        columns: 
+          - name: businessentityid
+          - name: nationalidnumber
+          - name: loginid
+          - name: jobtitle
+          - name: birthdate
+          - name: maritalstatus
+          - name: gender
+          - name: hiredate
+          - name: salariedflag
+          - name: vacationhours
+          - name: sickleavehours
+          - name: currentflag
+          - name: rowguid
+          - name: modifieddate
+          - name: organizationnode
+      
+      - name: humanresources_employeedepartmenthistory
+        columns: 
+          - name: businessentityid
+          - name: departmentid
+          - name: shiftid
+          - name: startdate
+          - name: enddate
+          - name: modifieddate
+
+      - name: humanresources_shift
+        columns: 
+          - name: shiftid
+          - name: "name"
+          - name: starttime
+          - name: endtime
+          - name: modifieddatebusinessentityid
+
+      - name: sales_salesorderdetail
+        columns: 
+          - name: salesorderid
+          - name: salesorderdetailid
+          - name: carriertrackingnumber
+          - name: orderqty
+          - name: productid
+          - name: specialofferid
+          - name: unitprice
+          - name: unitpricediscount
+          - name: rowguid
+          - name: modifieddate
+
+      - name: sales_salesorderheader
+        columns: 
+          - name: salesorderid
+          - name: revisionnumber
+          - name: orderdate
+          - name: duedate
+          - name: shipdate
+          - name: status
+          - name: onlineorderflag
+          - name: purchaseordernumber
+          - name: accountnumber
+          - name: customerid
+          - name: salespersonid
+          - name: territoryid
+          - name: billtoaddressid
+          - name: shiptoaddressid
+          - name: shipmethodid
+          - name: creditcardid
+          - name: creditcardapprovalcode
+          - name: currencyrateid
+          - name: subtotal
+          - name: taxamt
+          - name: freight
+          - name: totaldue
+          - name: comment
+          - name: rowguid
+          - name: modifieddate
+
+      - name: sales_salesorderheadersalesreason
+        columns: 
+          - name: salesorderid
+          - name: salesreasonid
+          - name: modifieddate
+
+      - name: sales_salesperson
+        columns: 
+          - name: businessentityid
+          - name: territoryid
+          - name: salesquota
+          - name: bonus
+          - name: commissionpct
+          - name: salesytd
+          - name: saleslastyear
+          - name: rowguid
+          - name: modifieddate
+
+      - name: sales_salesreason
+        columns: 
+          - name: salesreasonid
+          - name: name
+          - name: reasontype
+          - name: modifieddate
+
+      - name: sales_customer
+        columns: 
+          - name: customerid
+          - name: personid
+          - name: storeid
+          - name: territoryid
+          - name: rowguid
+          - name: modifieddate
+
+      - name: sales_store
+        columns: 
+          - name: businessentityid
+          - name: name
+          - name: salespersonid
+          - name: demographics
+          - name: rowguid
+          - name: modifieddate
+
+      - name: sales_salesterritory
+        columns: 
+          - name: territoryid
+          - name: name
+          - name: countryregioncode
+          - name: "group"
+          - name: salesytd
+          - name: saleslastyear
+          - name: costytd
+          - name: costlastyear
+          - name: rowguid
+          - name: modifieddate
+
+      - name: sales_salesterritoryhistory
+        columns: 
+          - name: businessentityid
+          - name: territoryid
+          - name: startdate
+          - name: enddate
+          - name: rowguid
+          - name: modifieddate
+
+      - name: sales_creditcard
+        columns: 
+          - name: creditcardid
+          - name: cardtype
+          - name: cardnumber
+          - name: expmonth
+          - name: expyear
+          - name: modifieddate
+
+      - name: sales_personcreditcard
+        columns: 
+          - name: businessentityid
+          - name: creditcardid
+          - name: modifieddate         
+
+

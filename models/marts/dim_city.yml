@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: dim_city
+    description: "Table with all city in database"
+    columns:
+      - name: city
+        description: Name of the city
+        tests:
+          - not_null
+
+      - name: stateprovinceid
+        description: ID of the state
+        tests:
+          - not_null
+
+      - name: stateprovincecode
+        description: Code of the state
+        tests:
+          - not_null
+      
+      - name: countryregioncode
+        description: Code of the region
+        tests:
+          - not_null
+
+      - name: countryname
+        description: Nane of the region
+        tests:
+          - not_null
+
+      - name: provincename
+        description: Name of State of the city
+        tests:
+          - not_null
+
+      - name: territoryid
+        description: ID of the territory 
+        tests:
+          - not_null
+          
+          

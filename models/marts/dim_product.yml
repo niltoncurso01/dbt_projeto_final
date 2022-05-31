@@ -1,0 +1,111 @@
+version: 2
+
+models:
+  - name: dim_product
+    description: "Products sold or used in the manfacturing of sold products."
+    columns:
+      - name: productid 
+        description: Primary key for Product records.
+        tests:
+          - not_null
+
+      - name: name
+        description: Name of the product.
+        tests:
+          - not_null
+
+      - name: productnumber
+        description: Unique product identification number.
+        tests:
+          - not_null
+
+      - name: makeflag
+        description: 0 = Product is purchased, 1 = Product is manufactured in-house.
+        tests:
+          - not_null
+
+      - name: finishedgoodsflag
+        description: 0 = Product is not a salable item. 1 = Product is salable.
+        tests:
+          - not_null
+
+      - name: color
+        description: Product color.
+
+      - name: safetystocklevel
+        description: Minimum inventory quantity.
+        tests:
+          - not_null
+
+      - name: reorderpoint
+        description: Inventory level that triggers a purchase order or work order.
+        tests:
+          - not_null
+
+      - name: standardcost
+        description: Standard cost of the product
+        tests:
+          - not_null
+
+      - name: listprice
+        description: Selling price.
+        tests:
+          - not_null
+
+      - name: size
+        description: Product size.
+      
+      - name: sizeunitmeasurecode
+        description: Unit of measure for Size column.
+
+      - name: weightunitmeasurecode
+        description: Unit of measure for Weight column.
+
+      - name: weight
+        description: Product weight.
+      
+      - name: daystomanufacture
+        description: Number of days required to manufacture the product.
+        tests:
+          - not_null
+
+      - name: productline
+        description: R = Road, M = Mountain, T = Touring, S = Standard.
+
+      - name: class
+        description: H = High, M = Medium, L = Low.
+
+      - name: style
+        description: W = Womens, M = Mens, U = Universal.
+
+      - name: productsubcategoryid
+        description: Product is a member of this product subcategory. Foreign key to ProductSubCategory.ProductSubCategoryID.
+
+      - name: productmodelid
+        description: Product is a member of this product model. Foreign key to ProductModel.ProductModelID.
+
+      - name: modelname
+        description: Product model description.
+
+      - name: catalogdescription
+        description: Detailed product catalog information in xml format.
+      
+      - name: instructions
+        description: Manufacturing instructions in xml format.
+
+      - name: productdescriptionid
+        description: Foreign key for ProductDescription records.
+
+      - name: description
+        description: Description of the product.
+
+      - name: sellstartdate
+        description: Date the product was available for sale.
+        tests:
+          - not_null
+
+      - name: sellenddate
+        description: Date the product was no longer available for sale.
+
+      - name: discontinueddate
+        description: Date the product was discontinued.

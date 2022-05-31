@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Table with infoes about customers in database"
+    columns:
+      - name: customerid 
+        description: Primary key
+        tests:
+          - not_null
+
+      - name: personid
+        description: Foreign key to Person - BusinessEntityID
+
+      - name: persontype
+        description: Primary type of person
+      
+      - name: title
+        description: A courtesy title. For example, Mr. or Ms.
+
+      - name: firstname
+        description: First name of the person
+
+      - name: middlename
+        description: Middle name or middle initial of the person
+
+      - name: lastname
+        description: Last name of the person
+
+      - name: phonenumber
+        description: Telephone number identification number
+
+      - name: phonenumbertypeid
+        description: Kind of phone number. Foreign key to PhoneNumberType
+
+      - name: phonenumbertype_name
+        description: Name of the telephone number type
+
+      - name: emailaddressid
+        description: Primary key. ID of this email address
+      
+      - name: emailaddress
+        description: E-mail address for the person
+
+      - name: storeid
+        description: Foreign key to Store BusinessEntityID
+
+      - name: territoryid
+        description: ID of the territory in which the customer is located
+          
+          
